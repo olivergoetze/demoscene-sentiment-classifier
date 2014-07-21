@@ -1,7 +1,7 @@
 import httplib2, os
 
 home = "/Users/oliver/PycharmProjects/parse_comments"
-i= 10001
+i= 1
 
 while i <= 61930:
     try:
@@ -11,12 +11,14 @@ while i <= 61930:
 
         filename = '%s.html' % (i)
         directory = '%s' % (i)
+        os.chdir('demo')
         os.mkdir(directory)
         os.chdir(directory)
+        print('Demo-ID', i, 'was successfully extracted from remote.')
         with open(filename, 'wb') as outputfile:
             outputfile.write(content)
     except:
-        print('error')
+        print('Demo-ID is not existing.')
         pass
     os.chdir(home)
     print(i)

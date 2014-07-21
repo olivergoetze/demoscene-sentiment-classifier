@@ -100,11 +100,11 @@ class ConsecutivePosTagger(nltk.TaggerI):
             history.append(tag)
         return zip(sentence, history)
 
-print 'Sets erstellen'
+print 'Building sets for the Part-of-Speech-Tagger ...'
 tagged_sents = brown.tagged_sents(categories='news')
 size = int(len(tagged_sents) * 0.1)
 train_sents, test_sents = tagged_sents[size:], tagged_sents[:size]
-print 'Training und Classification...'
+print 'Training and classification...'
 consec_pos_classifier = ConsecutivePosTagger(train_sents)
 print consec_pos_classifier.evaluate(test_sents)
 
@@ -129,7 +129,9 @@ while comment_i <= len(csv_store):
         demo_i_indicator = demo_i
 
         # 1. Segmentierung (Satzweise, Punkt Segmenter)
+        print '*** 1. Segmentation (sentence-based, Punkt Segmenter)'
         sent_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle') # todo: nicht optimal, z.b. wird '..' nicht zur Segmentierung verwendet --> evtl. Segmenter mit eigenen Ausdruecken implementieren (--> ch. 6.2)
+        print 'Segmentation in progress ...'
         sents = sent_tokenizer.tokenize(source_document)
         #pprint.pprint(sents)
 
@@ -142,6 +144,8 @@ while comment_i <= len(csv_store):
                         | [][.,;"'?():-_`]
                         '''
         tokenized_sents = []
+        print '*** 2. Tokenization'
+        print 'Tokenization in progress ...'
         for sent in sents:
             tokenized_sent = nltk.regexp_tokenize(sent, token_pattern)
             tokenized_sents.append(tokenized_sent)
@@ -149,6 +153,7 @@ while comment_i <= len(csv_store):
         #print(tokenized_sents)
 
         # 3. Spracherkennung (evtl. sogar satzweise moeglich!)
+        print '*** 3. Language recognition (not in use)'
         print_i= 1
         langid.set_languages(['en', 'de'])
         detected_language = ''
@@ -161,9 +166,10 @@ while comment_i <= len(csv_store):
         print(language_matching)
 
         # 4. Normalisierung (lowercase, stopwords, spellcheck, thesauri)
+        print '*** 4. Normalization (lowercase, stopwords, spellcheck)'
         stopwords_en = nltk.corpus.stopwords.words('english')  # Definition der stopword Corpora
         stopwords_de = nltk.corpus.stopwords.words('german')
-
+        print 'Stripping the stopwords ...'
         for sent in sents:
             #print(type(sent))
             sents_no_stopwords = []
@@ -184,7 +190,7 @@ while comment_i <= len(csv_store):
 
             sents_no_stopwords.append(sent)  # erstmal nicht weiter verwendet, da wichtige informationen wie bei 'not bad' das not entfernt werden
             #print(sents_no_stopwords)
-
+        print 'Tokenizing the stopword-free sentences ...'
         tokenized_sents_no_stopwords = []
         for sent in sents_no_stopwords:
             tokenized_sent_no_stopwords = nltk.regexp_tokenize(sent, token_pattern)
@@ -192,6 +198,7 @@ while comment_i <= len(csv_store):
         #print(tokenized_sents_no_stopwords)
 
         spellcheck_matching = []
+        print 'Using the stopword-free sentences for leetspeak recognition ...'
         for sent in tokenized_sents_no_stopwords:
             for token in sent:
                 leetspeak_match = re.search(r'[a-zA-Z]\d', token)  # Leetspeak-Woerter mit Spellcheck bearbeiten
@@ -287,16 +294,19 @@ while comment_i <= len(csv_store):
 
 
 
-
+        print('*** Part-of-Speech-Tagging')
         consec_sents = []
-        print('classifying')
+        print('classifying tokens with the consecutive tagger ...')
         tagged_tokenized_spellchecked_sents = []
         for sent in tokenized_spellchecked_sents:
             sent_tagged = consec_pos_classifier.tag(sent)
             tagged_tokenized_spellchecked_sents.append(sent_tagged)
         print(tagged_tokenized_spellchecked_sents)
         os.chdir('/Users/oliver/PycharmProjects/build_classifier_data/document_output')
+        print('*** Finalizing export')
+        print('Exporting the comment content ...')
         doc_output = '%s_%s.p' % (str(demo_i), str(comment_i_indicator))
+        print('Exporting the comment metadata ...')
         meta_output = '%s_%s_meta.p' % (str(demo_i), str(comment_i_indicator))
         pickle.dump(tagged_tokenized_spellchecked_sents, open(doc_output, 'wb'))
         pickle.dump(doc_meta, open(meta_output, 'wb'))

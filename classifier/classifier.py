@@ -62,7 +62,7 @@ while demo_i <= demo_count:
         #comment_import = pickle.load(open('/Users/oliver/PycharmProjects/build_classifier_data/document_output/demo_1_doc_1_content.p', 'rb'))
         meta_import = pickle.load(open(meta_filename, 'rb'))
         #print(comment_import)
-        print 'IMPORT-TRY 1, demo_i=', demo_i
+        #print 'IMPORT-TRY 1, demo_i=', demo_i
         print comment_import
     except:  # wenn alle Kommentare einer Demo bearbeitet, zur naechsten Demo wechseln
         try:
@@ -73,7 +73,7 @@ while demo_i <= demo_count:
             comment_import = pickle.load(open(comment_filename, 'rb'))
             meta_import = pickle.load(open(meta_filename, 'rb'))
             #print('moving on to next demo...', comment_import)
-            print 'IMPORT-TRY 2, demo_i=', demo_i
+            #print 'IMPORT-TRY 2, demo_i=', demo_i
             print comment_import
         except:
             pass
@@ -159,7 +159,7 @@ while demo_i <= demo_count:
                                 word_match = re.search(regex_string, sentiment_candidate[0])
                                 if word_match:
                                     prior_positive_match = 1
-                                    print('graphics-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                    #print('graphics-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                     polarity_shift = 0
                                     #  Vorherige zwei Woerter mit sentiment_shifters-List abgleichen. Wenn sentiment shifter auftaucht, dann Polaritaet umkehren:
                                     for shifter in sentiment_shifters:
@@ -208,7 +208,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(neg_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('graphics-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                        #print('graphics-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -260,7 +260,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(pos_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('graphics-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                        #print('graphics-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -308,7 +308,7 @@ while demo_i <= demo_count:
                                         regex_string = '^%s$' % str(neg_sent_word[0])
                                         word_match = re.search(regex_string, sentiment_candidate[0])
                                         if word_match:
-                                            print('graphics-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                            #print('graphics-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                             polarity_shift = 0
                                             for shifter in sentiment_shifters:
                                                 regex_string_shifter = '^%s$' % shifter
@@ -375,7 +375,7 @@ while demo_i <= demo_count:
                                 word_match = re.search(regex_string, sentiment_candidate[0])
                                 if word_match:
                                     prior_positive_match = 1
-                                    print('music-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                    #print('music-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                     polarity_shift = 0
                                     #  Vorherige zwei Woerter mit sentiment_shifters-List abgleichen. Wenn sentiment shifter auftaucht, dann Polaritaet umkehren:
                                     for shifter in sentiment_shifters:
@@ -422,7 +422,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(neg_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('music-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                        #print('music-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -474,7 +474,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(pos_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('music-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                        #print('music-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -522,7 +522,7 @@ while demo_i <= demo_count:
                                         regex_string = '^%s$' % str(neg_sent_word[0])
                                         word_match = re.search(regex_string, sentiment_candidate[0])
                                         if word_match:
-                                            print('music-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                            #print('music-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                             polarity_shift = 0
                                             for shifter in sentiment_shifters:
                                                 regex_string_shifter = '^%s$' % shifter
@@ -590,7 +590,7 @@ while demo_i <= demo_count:
                                 word_match = re.search(regex_string, sentiment_candidate[0])
                                 if word_match:
                                     prior_positive_match = 1
-                                    print('texture-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                    #print('texture-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                     polarity_shift = 0
                                     #  Vorherige zwei Woerter mit sentiment_shifters-List abgleichen. Wenn sentiment shifter auftaucht, dann Polaritaet umkehren:
                                     for shifter in sentiment_shifters:
@@ -637,7 +637,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(neg_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('texture-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                        #print('texture-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -689,7 +689,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(pos_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('texture-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                        #print('texture-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -737,7 +737,7 @@ while demo_i <= demo_count:
                                         regex_string = '^%s$' % str(neg_sent_word[0])
                                         word_match = re.search(regex_string, sentiment_candidate[0])
                                         if word_match:
-                                            print('texture-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                            #print('texture-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                             polarity_shift = 0
                                             for shifter in sentiment_shifters:
                                                 regex_string_shifter = '^%s$' % shifter
@@ -804,7 +804,7 @@ while demo_i <= demo_count:
                                 word_match = re.search(regex_string, sentiment_candidate[0])
                                 if word_match:
                                     prior_positive_match = 1
-                                    print('engine-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                    #print('engine-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                     polarity_shift = 0
                                     #  Vorherige zwei Woerter mit sentiment_shifters-List abgleichen. Wenn sentiment shifter auftaucht, dann Polaritaet umkehren:
                                     for shifter in sentiment_shifters:
@@ -851,7 +851,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(neg_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('engine-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                        #print('engine-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -903,7 +903,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(pos_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('engine-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                        #print('engine-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -951,7 +951,7 @@ while demo_i <= demo_count:
                                         regex_string = '^%s$' % str(neg_sent_word[0])
                                         word_match = re.search(regex_string, sentiment_candidate[0])
                                         if word_match:
-                                            print('engine-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                            #print('engine-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                             polarity_shift = 0
                                             for shifter in sentiment_shifters:
                                                 regex_string_shifter = '^%s$' % shifter
@@ -1018,7 +1018,7 @@ while demo_i <= demo_count:
                                 word_match = re.search(regex_string, sentiment_candidate[0])
                                 if word_match:
                                     prior_positive_match = 1
-                                    print('code-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                    #print('code-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                     polarity_shift = 0
                                     #  Vorherige zwei Woerter mit sentiment_shifters-List abgleichen. Wenn sentiment shifter auftaucht, dann Polaritaet umkehren:
                                     for shifter in sentiment_shifters:
@@ -1065,7 +1065,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(neg_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('code-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                        #print('code-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -1117,7 +1117,7 @@ while demo_i <= demo_count:
                                     regex_string = '^%s$' % str(pos_sent_word[0])
                                     word_match = re.search(regex_string, sentiment_candidate[0])
                                     if word_match:
-                                        print('code-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                        #print('code-MATCH-before:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                         polarity_shift = 0
                                         for shifter in sentiment_shifters:
                                             regex_string_shifter = '^%s$' % shifter
@@ -1165,7 +1165,7 @@ while demo_i <= demo_count:
                                         regex_string = '^%s$' % str(neg_sent_word[0])
                                         word_match = re.search(regex_string, sentiment_candidate[0])
                                         if word_match:
-                                            print('code-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                            #print('code-MATCH-before:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                             polarity_shift = 0
                                             for shifter in sentiment_shifters:
                                                 regex_string_shifter = '^%s$' % shifter
@@ -1238,7 +1238,7 @@ while demo_i <= demo_count:
                                         if word_match:
                                             sentiment_region_found = 1
                                             prior_positive_match = 1
-                                            print('general-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                            #print('general-MATCH-after:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                             polarity_shift = 0
                                             #  Vorherige zwei Woerter mit sentiment_shifters-List abgleichen. Wenn sentiment shifter auftaucht, dann Polaritaet umkehren:
                                             for shifter in sentiment_shifters:
@@ -1286,7 +1286,7 @@ while demo_i <= demo_count:
                                             word_match = re.search(regex_string, sentiment_candidate[0])
                                             if word_match:
                                                 sentiment_region_found = 1
-                                                print('general-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                                #print('general-MATCH-after:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                                 polarity_shift = 0
                                                 for shifter in sentiment_shifters:
                                                     regex_string_shifter = '^%s$' % shifter
@@ -1340,7 +1340,7 @@ while demo_i <= demo_count:
                                             word_match = re.search(regex_string, sentiment_candidate[0])
                                             if word_match:
                                                 sentiment_region_found = 1
-                                                print('general-MATCH-before_pos:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
+                                                #print('general-MATCH-before_pos:', aspect_string, pos_sent_word[0], sentiment_candidate[0])
                                                 polarity_shift = 0
                                                 for shifter in sentiment_shifters:
                                                     regex_string_shifter = '^%s$' % shifter
@@ -1390,7 +1390,7 @@ while demo_i <= demo_count:
                                                 word_match = re.search(regex_string, sentiment_candidate[0])
                                                 if word_match:
                                                     sentiment_region_found = 1
-                                                    print('general-MATCH-before_neg:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
+                                                    #print('general-MATCH-before_neg:', aspect_string, neg_sent_word[0], sentiment_candidate[0])
                                                     polarity_shift = 0
                                                     for shifter in sentiment_shifters:
                                                         regex_string_shifter = '^%s$' % shifter
@@ -1400,18 +1400,18 @@ while demo_i <= demo_count:
                                                         shifter_match2 = re.search(regex_string_shifter, shifter_candidate2[0])
 
                                                         if shifter_match1:
-                                                            print 'DEBUG: shifter_match1'
+                                                            #print 'DEBUG: shifter_match1'
                                                             shifter_candidate1_index = candidate_index-1
                                                             for shifter_exception_word in sentiment_shifters_exceptions:
                                                                 regex_string_shifter_exception = '^%s$' % shifter_exception_word
                                                                 shifter_exception_candidate = sent[shifter_candidate1_index+1]
                                                                 shifter_exception_match = re.search(regex_string_shifter_exception, shifter_exception_candidate[0])
                                                                 if not shifter_exception_match:
-                                                                    print 'DEBUGDEBUG'
+                                                                    #print 'DEBUGDEBUG'
                                                                     #polarity_pairs.append([aspect_name, 1])
                                                                     polarity_shift += 1
                                                         elif shifter_match2:
-                                                            print 'DEBUG: shifter_match2'
+                                                           # print 'DEBUG: shifter_match2'
                                                             shifter_candidate2_index = candidate_index-2
                                                             for shifter_exception_word in sentiment_shifters_exceptions:
                                                                 regex_string_shifter_exception = '^%s$' % shifter_exception_word
@@ -1439,7 +1439,7 @@ while demo_i <= demo_count:
 
             index_i += 1
             #print('INDEX_DEBUG:', index_i)
-    #print(polarity_pairs)
+    print(polarity_pairs)
     for pair in polarity_pairs:
         quintuple = [meta_import[0], pair[0], pair[1], meta_import[1], meta_import[2]]
         #print(quintuple)
@@ -1447,7 +1447,7 @@ while demo_i <= demo_count:
             all_comment_quintuples.append(quintuple)
 
     comment_i += 1
-    #print(all_comment_quintuples)
+    print(all_comment_quintuples)
     if all_comment_quintuples:
         all_demo_quintuples.append(all_comment_quintuples)
 

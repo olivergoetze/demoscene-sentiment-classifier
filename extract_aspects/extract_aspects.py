@@ -412,7 +412,7 @@ for neg_word in lexicon_store_neg:
     print tokenized_dump_nltk_text.similar(neg_word[0])"""
 
 #tokenized_dump_nltk_text.collocations()
-tokenized_dump_nltk_text.concordance('but')
+tokenized_dump_with_stopwords_nltk_text.concordance('but')
 
 
 

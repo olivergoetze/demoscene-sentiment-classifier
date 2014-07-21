@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import os, codecs, re, csv, httplib2, urllib, json
 
 home = "/Users/oliver/PycharmProjects/parse_comments"
-outputdir = "/Users/oliver/PycharmProjects/parse_comments/output_rev1_sub_windows"
+outputdir = "/Users/oliver/PycharmProjects/parse_comments/output_rev1_demo"
 outputfile_experts = 'experts.csv'
 i = 1
 piggiecount = 0
@@ -71,12 +71,12 @@ while i <= 61930:
             piggiecount += 1
         else:
             authorstr = ''
-        print(contentstr)
-        print(userstr, ', ')
-        print(datestr, ', ')
-        print(ratingstr)
-        print(heartstr)
-        print(authorstr)
+        #print(contentstr)
+        #print(userstr, ', ')
+        #print(datestr, ', ')
+        #print(ratingstr)
+        #print(heartstr)
+        #print(authorstr)
         if titlesoup is not None:
             print(titlestr, '\n')
         else:
@@ -117,6 +117,7 @@ while i <= 61930:
         if titlesoup is not None and authorstr != 1:
             all_comments.append(single_comment)
             commentcount += 1
+            print('Comment added:', single_comment)
             if expert_value == 'expert':
                 expert_comments.append(single_comment)
 
